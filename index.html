@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Stats and Loan Request</title>
+</head>
+<body>
+  <h1>User Stats</h1>
+  <p>User Name: John Doe</p>
+  <p>User Age: 30</p>
+  <p>User Credit Score: 750</p>
+
+  <h2>Borrow Money</h2>
+  <form id="loanForm">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+
+    <label for="lender">Lender:</label>
+    <input type="text" id="lender" name="lender" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="borrowLikelihood">
+    <h3>Likelihood of Getting the Loan:</h3>
+    <p id="borrowResult">-</p>
+  </div>
+
+  <h2>Send Money</h2>
+  <form id="sendMoneyForm">
+    <label for="recipient">Recipient:</label>
+    <input type="text" id="recipient" name="recipient" required>
+
+    <label for="amountToSend">Amount to Send:</label>
+    <input type="number" id="amountToSend" name="amountToSend" required>
+
+    <button type="submit">Send Money</button>
+  </form>
+
+  <div id="repayLikelihood">
+    <h3>Likelihood of Repayment:</h3>
+    <p id="repayResult">-</p>
+  </div>
+
+  <script>
+    document.getElementById('loanForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      calculateBorrowLikelihood();
+    });
+
+    document.getElementById('sendMoneyForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      calculateRepayLikelihood();
+    });
+
+    function calculateBorrowLikelihood() {
+      // Replace the following with your actual backend logic to calculate the likelihood
+      // of getting the requested loan from the lender.
+      // For example, you can make an API call to your server and return the likelihood.
+      // For demonstration purposes, let's just assume a random value between 0 and 100.
+      const likelihood = Math.floor(Math.random() * 101);
+      document.getElementById('borrowResult').textContent = `${likelihood}%`;
+    }
+
+    function calculateRepayLikelihood() {
+      // Replace the following with your actual backend logic to calculate the likelihood
+      // of the recipient paying back the money.
+      // For example, you can make an API call to your server and return the likelihood.
+      // For demonstration purposes, let's just assume a random value between 0 and 100.
+      const likelihood = Math.floor(Math.random() * 101);
+      document.getElementById('repayResult').textContent = `${likelihood}%`;
+    }
+  </script>
+</body>
+</html>
 
